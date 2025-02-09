@@ -14,6 +14,7 @@ class Images:
     background: pygame.Surface
     player: Tuple[pygame.Surface]
     pipe: Tuple[pygame.Surface]
+    explosion: List[pygame.Surface]
 
     def __init__(self) -> None:
         self.numbers = list(
@@ -33,6 +34,17 @@ class Images:
         ).convert_alpha()
         # base (ground) sprite
         self.base = pygame.image.load("assets/sprites/base.png").convert_alpha()
+
+        # Load explosion sprites
+        self.explosion = [
+            pygame.image.load(
+                f"assets/sprites/explosion{i}.png"
+            ).convert_alpha()
+            for i in range(
+                1, 6
+            )  # Assuming you have 5 explosion frames named explosion1.png through explosion5.png
+        ]
+
         self.randomize()
 
     def randomize(self):

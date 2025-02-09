@@ -5,6 +5,7 @@ import pygame
 
 from ..utils import GameConfig, clamp
 from .entity import Entity
+from .explosion import Explosion
 from .floor import Floor
 from .pipe import Pipe, Pipes
 
@@ -29,6 +30,7 @@ class Player(Entity):
         self.crashed = False
         self.crash_entity = None
         self.set_mode(PlayerMode.SHM)
+        self.explosion = None
 
     def set_mode(self, mode: PlayerMode) -> None:
         self.mode = mode
@@ -126,6 +128,10 @@ class Player(Entity):
 
         self.draw_player()
 
+        # Draw explosion if it exists
+        if self.explosion and not self.explosion.complete:
+            self.explosion.draw()
+
     def draw_player(self) -> None:
         rotated_image = pygame.transform.rotate(self.image, self.rot)
         rotated_rect = rotated_image.get_rect(center=self.rect.center)
@@ -151,17 +157,18 @@ class Player(Entity):
         if self.collide(floor):
             self.crashed = True
             self.crash_entity = "floor"
+            # Create explosion at crash site
+            self.explosion = Explosion(self.config, self.cx - 32, self.cy - 32)
             return True
 
-        for pipe in pipes.upper:
+        for pipe in pipes.upper + pipes.lower:
             if self.collide(pipe):
                 self.crashed = True
                 self.crash_entity = "pipe"
-                return True
-        for pipe in pipes.lower:
-            if self.collide(pipe):
-                self.crashed = True
-                self.crash_entity = "pipe"
+                # Create explosion at crash site
+                self.explosion = Explosion(
+                    self.config, self.cx - 32, self.cy - 32
+                )
                 return True
 
         return False
