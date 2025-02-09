@@ -52,3 +52,9 @@ def pre_commit(c):
 def pre_commit_all(c):
     """Run pre-commit on all files"""
     c.run("pre-commit run --all-files")
+
+
+@task
+def test(c):
+    """Run tests"""
+    c.run("pytest tests/ -v")

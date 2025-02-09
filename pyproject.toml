@@ -14,7 +14,8 @@ dev = [
     "black >= 22.1.0",
     "pre-commit >= 2.18.1",
     "flake8 >= 4.0.1",
-    "isort >= 5.10.1"
+    "isort >= 5.10.1",
+    "pytest >= 7.0.0"
     ]
 
 [tool.black]
@@ -30,3 +31,8 @@ exclude = '''
 profile = "black"
 skip = []
 skip_glob = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]

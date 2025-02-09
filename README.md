@@ -8,26 +8,43 @@ Setup (Workshop - crossplatform)
 
 1. Install Python 3 from [here](https://www.python.org/download/releases/) (or use brew/apt/pyenv)
 
-2. Install invoke:
+2. Create and activate virtual environment to avoid any conflict with your own python projects:
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate it (on Windows):
+venv\Scripts\activate
+# OR on macOS/Linux:
+source venv/bin/activate
+```
+
+3. Install invoke:
 ```bash
 pip install invoke
 ```
 
-3. Initialize the project:
+4. Initialize the project:
 ```bash
 invoke init
 ```
 
-4. Run the game:
+5. Run the game:
 ```bash
 invoke run
 ```
 Use `DEBUG=True invoke run` to see rects and coords
 
-5. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
+6. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
 
-6. Optionally run `invoke web` to run the game in the browser (`pygbag`).
+7. Optionally run `invoke web` to run the game in the browser (`pygbag`).
 
+### Testing
+
+Run the tests:
+```bash
+invoke test
+```
 
 Setup (MacOS)
 ---------------------------
