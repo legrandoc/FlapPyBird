@@ -3,7 +3,7 @@
 
 A Flappy Bird Clone made using [python-pygame][pygame]
 
-Setup (Workshop - crossplatform)
+Setup (Workshop)
 ---------------------------
 
 1. Install Python 3 from [here](https://www.python.org/download/releases/) (or use brew/apt/pyenv)
@@ -46,21 +46,37 @@ Run the tests:
 invoke test
 ```
 
-Setup (MacOS)
+Try Cursor out
 ---------------------------
 
-1. Install Python 3 from [here](https://www.python.org/download/releases/) (or use brew/apt/pyenv)
+### Use Cursor chat to help you onboard
+For example:
+- I’m new to this codebase, could you provide an onboarding overview for me?
+- Can you help me understand the codebase?
+- How is the code organized?
 
-2. Run `make init` (this will install pip packages, use virtualenv or something similar if you don't want to install globally)
+### Use Cursor agent to add a new functionality
+For example:
+- Become invulnerable for a few second after a key press
+- Add a new powerup that increases the score multiplier for 10 seconds
+- Add an explosion animation when losing the game
 
-3. Run `make` to run the game. Run `DEBUG=True make` to see rects and coords
+### Use Cursor agent to generate unit tests specifically on your changes
+  @PR (Diff with Main Branch) Can you add unit test for the changes I made?
 
-4. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
+### Use Cursor agent to refactor the code
+For example:
+- Can you refactor this code for better maintainability?
+- Can you extract this function to a separate file?
 
-5. Optionally run `make web` to run the game in the browser (`pygbag`).
+### Use Ctrl-K in terminal to write a command
+For example:
+- What is the command again to rebase my branch on remote master?
+- How do I create a new branch?
+- How do I squash my commits?
+- How to I run the tests?
+- How to I run the game?
 
+### Use you imagination to try out even more with Cursor :)
 
-Demo
-----------
-
-https://user-images.githubusercontent.com/2307626/130682424-9254b32d-efe0-406e-a6ea-3fb625a2df5e.mp4
+You can find more information about Cursor functionnalities in the [Cursor documentation](https://docs.cursor.com/features/chat)
